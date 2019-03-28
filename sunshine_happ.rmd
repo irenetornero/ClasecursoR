@@ -17,6 +17,7 @@ It is well-known that climate influences people happiness [@Rezende_2007]
 
 ```{r}
 datos<-read.table("data.txt", header=TRUE)
+datos<-datos[-c(12, 36), ]
 ```
 
 ```{r}
