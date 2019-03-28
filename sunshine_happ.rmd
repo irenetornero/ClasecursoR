@@ -1,0 +1,61 @@
+---
+title: "Solecito y felicidad"
+author: "Irene Tornero Pinilla"
+date: "28 de marzo de 2019"
+output: word_document
+editor_options: 
+  chunk_output_type: console
+bibliography: references.bib  
+csl: ecology-letters.csl
+---
+
+## INTRODUCTION
+
+It is well-known that climate influences people happiness [@Rezende_2007]
+
+##METHODS
+
+```{r}
+datos<-read.table("data.txt", header=TRUE)
+```
+
+```{r}
+modelo<-lm(happiness~sunshine, data=datos)
+```
+
+We interviewed `r nrow(datos)`people and fitted a linear model: 
+$$
+y=\alpha+\beta x + \epsilon
+$$
+##RESULTS
+
+We found that happiness is positively related to sunshine hours (`r coef(modelo)[2]`).
+
+```{r}
+library(visreg)
+visreg(modelo)
+```
+
+```{r}
+library(knitr)
+library(xtable)
+kable(xtable(modelo))
+```
+
+##DISCUSSION
+
+Sunshine is good for happiness .
+
+##REFERENCES
+
+
+
+
+
+
+
+
+
+
+
+
